@@ -20,3 +20,21 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table, td {
+    align-content:center;
+    cellspacing= 20;
+    cellpadding= 20; 
+    color: black;
+    background-color: darksalmon;
+    border: 1px, solid white;
+    align-items: center;
+}
+
+.taskBox{
+    position: relative;
+    border: 20px, solid white;
+    align-content: center;
+    background-color: darksalmon;
+    
+}
