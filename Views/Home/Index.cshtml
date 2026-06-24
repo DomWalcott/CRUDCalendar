@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TaskItemData
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,7 +7,8 @@
 
 <div>
     <div>
-    <h2 align="center">June 2026</h2>
+        <h2 align="center"> <button><</button>2026<button>></button></h2>
+        <h2 align="center"><button><</button>June<button>></button></h2>
     </div>
     <div>
         <table align="center", cellpadding="25", cellspacing="25">
@@ -23,8 +25,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td role="button">1</td>
-                    <td role="button">2</td>
+                    <td role="button" onclick="showTask(1)">1</td>
+                    <td role="button" onclick="showTask(2)">2</td>
                     <td>3</td>
                     <td>4</td>
                     <td>5</td>
@@ -70,7 +72,25 @@
             </tbody>
         </table>
     </div>
-    <div class="taskBox">
+    <div class="taskBox" id="taskBox">
         <p>Hello task box</p>
     </div>
 </div>
+<script>
+    const tasks={
+        1: {title: "Team meeting", details:"1000am"},
+        2: {title: "team building event", details:"11:30am"}
+    };
+
+    function showTask(day){
+        const taskBox = document.getElementById('taskBox');
+        const dayTask = tasks[day];
+
+        if (dayTask){
+            taskBox.innerHTML = `<h3>${dayTask.title}</h3><p>${dayTask.details}</p>`;
+        } 
+        else {
+            taskBox.innerHTML = `<p>No tasks for day ${day}</p>`;
+        }
+    }
+</script>
